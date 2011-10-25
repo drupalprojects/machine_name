@@ -37,6 +37,15 @@ function machine_name_field_widget_info() {
  * Implements hook_field_widget_form().
  */
 function machine_name_field_widget_form(&$form, &$form_state, $field, $instance, $langcode, $items, $delta, $element) {
+  // The field should never be edited if there's a value, the only exception
+  // is if the field is populated in a preview on a new node.
+  $disabled = TRUE;
+  if (!isset($items[$delta]) || machine_name_field_is_empty($items[$delta], $field)) {
+    $disabled = FALSE;
+  }
+  elseif (!empty($form['#node_edit_form']) && !isset($form['nid']['#value'])) {
+    $disabled = FALSE;
+  }
   $element['value']['#type'] = 'machine_name';
   $element['value']['#default_value'] = isset($items[$delta]['value']) ? $items[$delta]['value'] : '';
   $element['value']['#machine_name']['exists'] = 'machine_name_exists';
@@ -44,7 +53,7 @@ function machine_name_field_widget_form(&$form, &$form_state, $field, $instance,
   $element['value']['#machine_name']['replace'] = $field['settings']['replace'];
   $element['value']['#maxlength'] = $field['settings']['max_length'];
   $element['value']['#title'] = $instance['label'];
-  $element['value']['#disabled'] = isset($items[$delta]) && !machine_name_field_is_empty($items[$delta], $field);
+  $element['value']['#disabled'] = $disabled;
   $element['value']['#required'] = $element['#required'];
   $element['value']['#field'] = $field;
   return $element;
