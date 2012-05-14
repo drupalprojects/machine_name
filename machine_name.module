@@ -19,7 +19,7 @@ function machine_name_field_info() {
         'replace' => '_',
       ),
       'instance_settings' => array(),
-      'default_widget' => 'machine_name_machine_name',
+      'default_widget' => 'machine_name_default',
       'default_formatter' => 'machine_name_default',
     ),
   );
