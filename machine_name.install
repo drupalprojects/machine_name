@@ -22,4 +22,3 @@ function machine_name_field_schema($field) {
   );
   return $schema;
 }
-

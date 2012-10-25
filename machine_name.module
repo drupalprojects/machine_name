@@ -2,7 +2,8 @@
 
 /**
  * @file
- * Defines a machine name field type, relying on Form API's #type 'machine_name'.
+ * Defines a machine name field type, relying on Form API's #type
+ * 'machine_name'.
  */
 
 /**
@@ -95,13 +96,13 @@ function machine_name_value_exists($value, $element, &$form_state) {
 }
 
 /**
- * Implements hook_field_formatter_info()
+ * Implements hook_field_formatter_info().
  */
-function machine_name_field_formatter_info(){
+function machine_name_field_formatter_info() {
   return array(
     'machine_name_default' => array(
       'label' => t('Default'),
-      'field types' => array('machine_name')
+      'field types' => array('machine_name'),
     ),
   );
 }
@@ -111,7 +112,7 @@ function machine_name_field_formatter_info(){
  */
 function machine_name_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
   $element = array();
-  switch($display['type']){
+  switch($display['type']) {
     case 'machine_name_default':
       foreach ($items as $delta => $item) {
         $element[$delta] = array('#markup' => strip_tags($item['value']));
