@@ -122,3 +122,17 @@ function machine_name_field_formatter_view($entity_type, $entity, $field, $insta
   }
   return $element;
 }
+
+/*
+ * Implements hook_apachesolr_field_mappings().
+ */
+function machine_name_apachesolr_field_mappings() {
+  $mappings['machine_name'] = array(
+    'indexing_callback' => 'apachesolr_fields_default_indexing_callback',
+    'index_type' => 'string',
+    'facets' => FALSE,
+    'dependency plugins' => array('bundle', 'role'),
+    'multiple' => FALSE,
+  );
+  return $mappings;
+}
