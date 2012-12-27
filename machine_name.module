@@ -22,6 +22,8 @@ function machine_name_field_info() {
       'instance_settings' => array(),
       'default_widget' => 'machine_name_default',
       'default_formatter' => 'machine_name_default',
+      // Expose the field as text for the Entity metadata framework.
+      'property_type' => 'text',
     ),
   );
 }
