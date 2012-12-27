@@ -24,4 +24,4 @@ Timeline:
 
 2012-04-24 C_Logemann has adopted this module and is the new Maintainer.
 
-2012-10-25 Special stable version 7.x-1.0
+2012-11-06 Special stable version 7.x-1.0
