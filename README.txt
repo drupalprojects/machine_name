@@ -16,8 +16,6 @@ are some limitations. Please take a look at module issues:
 http://drupal.org/project/issues/machine_name
 Feel free to file an issue for reporting any problems and questions.
 
-Further development will be done in the 7.x-2.x branch.
-
 Timeline:
 
 2011-10-26 The module was created by beejeebus and hunmonk.
