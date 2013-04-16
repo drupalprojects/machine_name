@@ -1,5 +1,9 @@
-
 Machine Name module
+-------------------
+
+NOTE: The 7.x-2.x branch of this module is currently abandoned.
+Please use 7.x-1.x instead.  See https://drupal.org/node/1971726 for more.
+
 -------------------
 
 This Module defines a machine name field type, relying on Form API's #type
@@ -15,8 +19,6 @@ The module can be used by everybody outside the drupal.org website. Maybe there
 are some limitations. Please take a look at module issues:
 http://drupal.org/project/issues/machine_name
 Feel free to file an issue for reporting any problems and questions.
-
-Further development will be done in the 7.x-2.x branch.
 
 Timeline:
 
