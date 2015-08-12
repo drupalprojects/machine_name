@@ -18,6 +18,7 @@ function machine_name_field_info() {
         'max_length' => 128,
         'replace_pattern' => '[^a-z0-9_]+',
         'replace' => '_',
+        'editable' => FALSE,
       ),
       'instance_settings' => array(),
       'default_widget' => 'machine_name_default',
@@ -44,6 +45,22 @@ function machine_name_field_widget_info() {
 }
 
 /**
+ * Implements hook_field_widget_settings_form().
+ */
+function machine_name_field_widget_settings_form($field, $instance) {
+  $settings = $instance['widget']['settings'];
+
+  $form['editable'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Editable'),
+    '#description' => t('Allows to edit field in saved entity.'),
+    '#default_value' => !empty($settings['editable']) ? $settings['editable'] : FALSE,
+  );
+
+  return $form;
+}
+
+/**
  * Implements hook_field_widget_form().
  */
 function machine_name_field_widget_form(&$form, &$form_state, $field, $instance, $langcode, $items, $delta, $element) {
@@ -62,9 +79,10 @@ function machine_name_field_widget_form(&$form, &$form_state, $field, $instance,
   );
 
   // Machine names cannot be edited if there is a value. The only exception is
-  // when previewing a new entity.
+  // when previewing a new entity or field marked as "editable".
   $disabled = TRUE;
-  if (!isset($items[$delta]) || machine_name_field_is_empty($items[$delta], $field)) {
+  $editable = !empty($instance['widget']['settings']['editable']);
+  if (!isset($items[$delta]) || machine_name_field_is_empty($items[$delta], $field) || $editable) {
     $disabled = FALSE;
   }
   // @todo Make this work for other entity types.
