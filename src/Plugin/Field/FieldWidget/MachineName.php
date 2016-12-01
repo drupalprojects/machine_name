@@ -51,6 +51,9 @@ class MachineName extends WidgetBase {
       '#default_value' => isset($items[$delta]->value) ? $items[$delta]->value : NULL,
       '#maxlength' => 64,
       '#disabled' => $disabled,
+      '#machine_name' => array(
+        'exists' => array($this, 'exists'),
+      )
     ];
 
     $element['value'] = $element + $widget;
@@ -81,6 +84,20 @@ class MachineName extends WidgetBase {
     }
 
     return $summary;
+  }
+
+  /**
+   * This method needs to exist, but the constrain does the actual validation.
+   *
+   * @param string $value
+   *   The input value.
+   *
+   * @return bool
+   *   As the MachineNameUnique constraint will do the actual validation, always
+   *   return FALSE to skip validation here.
+   */
+  public function exists($value) {
+    return FALSE;
   }
 
 }
