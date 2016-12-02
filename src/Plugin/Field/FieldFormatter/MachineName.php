@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\machine_name\Plugin\Field\FieldFormatter\MachineName.
- */
-
 namespace Drupal\machine_name\Plugin\Field\FieldFormatter;
 
 use Drupal\Component\Utility\Html;

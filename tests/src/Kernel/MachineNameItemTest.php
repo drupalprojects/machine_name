@@ -76,4 +76,5 @@ class MachineNameItemTest extends FieldKernelTestBase {
     $entity->field_test->generateSampleItems();
     $this->entityValidateAndSave($entity);
   }
+
 }

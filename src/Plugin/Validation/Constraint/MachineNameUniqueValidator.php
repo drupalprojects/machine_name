@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\Core\Validation\Plugin\Validation\Constraint\UniqueFieldValueValidator.
- */
-
 namespace Drupal\machine_name\Plugin\Validation\Constraint;
 
 use Drupal\Component\Utility\Unicode;
